@@ -21,6 +21,11 @@ const TimelineItem = ({
       __html: subheader
   }} /> : null;
 
+  let isImage = false
+  if (img) {
+    isImage = true
+  }
+
   const liClassName = clsx("timeline-item", { "timeline-inverted": invert });
 
   return (
