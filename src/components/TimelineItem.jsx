@@ -31,12 +31,12 @@ const TimelineItem = ({
   return (
     <li className={liClassName}>
       <div className="timeline-image">
-        {imageContent || (
+        {isImage ? (
           <Img
             className="rounded-circle img-fluid"
             fluid={img.fluid}
           />
-        )}
+        ) : null }
       </div>
       <div className="timeline-panel">
         <div className="timeline-heading">
