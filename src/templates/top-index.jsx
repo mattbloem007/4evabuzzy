@@ -101,7 +101,7 @@ export const query = graphql`
       }
     }
     wpgraphql {
-    posts {
+    posts (first:10000){
       edges {
         node {
           id
@@ -243,7 +243,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
       if (cont[i+13]) {
         ser.content = cont[i+13].content
         ser.header = cont[i+13].header
-        ser.img = files[12-i].file.childImageSharp
+        ser.img = files[8-i].file.childImageSharp
         sectionsNodes[2].frontmatter.subheader = titles[1].subheader
         sectionsNodes[2].frontmatter.header = titles[1].header
       }
