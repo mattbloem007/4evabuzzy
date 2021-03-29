@@ -20,12 +20,17 @@ const TeamMember = ({
   const githubPart = github ? <SocialIcons.Github userName={github} /> : null;
   const mediumPart = medium ? <SocialIcons.Medium userName={medium} /> : null;
 
+  let isImage = false
+  if (img) {
+    isImage = true
+  }
+
   return (
     <div className="team-member">
-      <Img
+      {isImage ? <Img
         className="mx-auto circle rounded-circle"
         fluid={img.fluid}
-      />
+      /> : null }
       <h4>{header}</h4>
       <p className="text-muted" dangerouslySetInnerHTML={{
           __html: subheader

@@ -36,7 +36,7 @@ const TimelineItem = ({
             className="rounded-circle img-fluid"
             fluid={img.fluid}
           />
-        ) : null }
+        ) : null}
       </div>
       <div className="timeline-panel">
         <div className="timeline-heading">
