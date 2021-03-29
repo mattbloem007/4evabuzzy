@@ -8,6 +8,9 @@ module.exports = {
     description,
     author,
   },
+  flags: {
+  PRESERVE_WEBPACK_CACHE: true,
+},
   plugins: [
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -84,6 +87,17 @@ module.exports = {
         langKeyDefault: defaultLang,
         useLangKeyLayout: false,
         pagesPaths: ["/content/"],
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Remote schema query type. This is an arbitrary name.
+        typeName: "WPGraphQL",
+        // Field name under which it will be available. Used in your Gatsby query. This is also an arbitrary name.
+        fieldName: "wpgraphql",
+        // GraphQL endpoint, relative to your WordPress home URL.
+        url: "http://41.185.8.137/~xic02/4evabuzzy/graphql",
       },
     },
   ],

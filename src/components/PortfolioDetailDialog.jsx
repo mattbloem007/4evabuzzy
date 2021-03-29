@@ -27,14 +27,17 @@ const PortfolioDetailDialog = ({
         <Modal.Title id="contained-modal-title-vcenter">{header}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="mx-auto">
-        <p className="item-intro text-muted">{subheader}</p>
+        <p className="item-intro text-muted" dangerouslySetInnerHTML={{
+            __html: subheader
+        }} />
         <Image
           className="img-fluid d-block"
           fileName={imageFileName}
           alt={imageAlt || header || subheader}
         />
-        <p>{content}</p>
-        {extraInfo}
+        <p dangerouslySetInnerHTML={{
+            __html: content
+        }}/>
       </Modal.Body>
       <Modal.Footer>
         <div className="mx-auto">

@@ -7,7 +7,9 @@ import "./SectionHeader.scss";
 
 const SectionHeader = ({ header, subheader, className, ...restProps }) => {
   const subheaderPart = subheader ? (
-    <h3 className="section-subheading text-muted">{subheader}</h3>
+    <h3 className="section-subheading text-muted" dangerouslySetInnerHTML={{
+        __html: subheader
+    }}/>
   ) : null;
 
   return (

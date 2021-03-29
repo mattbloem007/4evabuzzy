@@ -25,7 +25,7 @@ const Footer = ({ frontmatter }) => {
           <Col lg={5} className="text-lg-left">
             {copyright}
           </Col>
-          <Col lg={3} className="my-3 my-lg-0">
+          {/**  <Col lg={3} className="my-3 my-lg-0">
             {twitter ? <SocialIcons.Twitter userName={twitter} /> : null}
             {facebook ? <SocialIcons.Facebook userName={facebook} /> : null}
             {linkedin ? <SocialIcons.Linkedin userName={linkedin} /> : null}
@@ -37,7 +37,7 @@ const Footer = ({ frontmatter }) => {
               {privacyText}
             </a>
             <a href={termsHref}>{termsText}</a>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </footer>

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { Col } from "react-bootstrap";
 import Image from "components/Image";
+import Img from "gatsby-image";
 import Icon from "components/Icon";
 import PortfolioDetailDialog from "components/PortfolioDetailDialog";
 
@@ -17,6 +18,7 @@ const PortfolioItem = ({
   imageFileNameDetail,
   imageAltDetail,
   extraInfo,
+  img,
 }) => {
   const [showDetail, setShowDetail] = React.useState(false);
   const handleShowDetail = React.useCallback(() => {
@@ -36,11 +38,7 @@ const PortfolioItem = ({
           data-toggle="modal"
           onClick={handleShowDetail}
         >
-          <Image
-            className="img-fluid"
-            fileName={imageFileName}
-            alt={imageAlt || header || subheader}
-          />
+        <Img className="img-fluid" fluid={img.fluid} />
           <div className="portfolio-hover">
             <div className="portfolio-hover-content">
               <Icon iconName="PlusIcon" size="2x" />
@@ -49,7 +47,9 @@ const PortfolioItem = ({
         </a>
         <div className="portfolio-caption">
           <h4>{header}</h4>
-          {subheader ? <p className="text-muted">{subheader}</p> : null}
+          {subheader ? <p className="text-muted" dangerouslySetInnerHTML={{
+              __html: subheader
+          }} /> : null}
         </div>
       </Col>
       <PortfolioDetailDialog
@@ -75,6 +75,7 @@ PortfolioItem.propTypes = {
   imageFileNameDetail: PropTypes.string,
   imageAltDetail: PropTypes.string,
   extraInfo: PropTypes.any,
+  img: PropTypes.any
 };
 
 PortfolioItem.defaultProps = {
@@ -84,6 +85,7 @@ PortfolioItem.defaultProps = {
   imageFileNameDetail: "",
   imageAltDetail: "",
   extraInfo: null,
+  img: null
 };
 
 export default PortfolioItem;

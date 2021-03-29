@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-
+import Img from "gatsby-image";
 import Image from "components/Image";
 
 import "./TimelineItem.scss";
@@ -14,9 +14,12 @@ const TimelineItem = ({
   header,
   subheader,
   content,
+  img,
 }) => {
   const headerPart = header ? <h4>{header}</h4> : null;
-  const subheaderPart = subheader ? <h4 className="subheading">{subheader}</h4> : null;
+  const subheaderPart = subheader ? <h4 className="subheading"dangerouslySetInnerHTML={{
+      __html: subheader
+  }} /> : null;
 
   const liClassName = clsx("timeline-item", { "timeline-inverted": invert });
 
@@ -24,10 +27,9 @@ const TimelineItem = ({
     <li className={liClassName}>
       <div className="timeline-image">
         {imageContent || (
-          <Image
+          <Img
             className="rounded-circle img-fluid"
-            fileName={imageFileName}
-            alt={imageAlt || header || subheader}
+            fluid={img.fluid}
           />
         )}
       </div>
@@ -37,7 +39,9 @@ const TimelineItem = ({
           {subheaderPart}
         </div>
         <div className="timeline-body">
-          <p className="text-muted">{content}</p>
+          <p className="text-muted" dangerouslySetInnerHTML={{
+              __html: content
+          }}/>
         </div>
       </div>
     </li>
@@ -52,6 +56,7 @@ TimelineItem.propTypes = {
   header: PropTypes.string,
   subheader: PropTypes.string,
   content: PropTypes.string,
+  img: PropTypes.any,
 };
 
 TimelineItem.defaultProps = {
@@ -62,6 +67,7 @@ TimelineItem.defaultProps = {
   header: "",
   subheader: "",
   content: "",
+  img: null,
 };
 
 export default TimelineItem;

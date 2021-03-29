@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import Img from "gatsby-image";
 import Image from "components/Image";
 import * as SocialIcons from "components/SocialIcons";
 
@@ -12,6 +12,7 @@ const TeamMember = ({
   header,
   subheader,
   social: { twitter, facebook, linkedin, github, medium },
+  img
 }) => {
   const twitterPart = twitter ? <SocialIcons.Twitter userName={twitter} /> : null;
   const facebookPart = facebook ? <SocialIcons.Facebook userName={facebook} /> : null;
@@ -21,20 +22,15 @@ const TeamMember = ({
 
   return (
     <div className="team-member">
-      <Image
+      <Img
         className="mx-auto circle rounded-circle"
-        fileName={imageFileName}
-        alt={imageAlt || header || subheader}
+        fluid={img.fluid}
       />
       <h4>{header}</h4>
-      <p className="text-muted">{subheader}</p>
-      <div>
-        {twitterPart}
-        {facebookPart}
-        {linkedinPart}
-        {githubPart}
-        {mediumPart}
-      </div>
+      <p className="text-muted" dangerouslySetInnerHTML={{
+          __html: subheader
+      }} />
+
     </div>
   );
 };
@@ -44,6 +40,7 @@ TeamMember.propTypes = {
   imageAlt: PropTypes.string,
   header: PropTypes.string,
   subheader: PropTypes.string,
+  img: PropTypes.any,
   social: PropTypes.shape({
     twitter: PropTypes.string,
     facebook: PropTypes.string,
@@ -57,6 +54,7 @@ TeamMember.defaultProps = {
   imageAlt: null,
   header: "",
   subheader: "",
+  img: null,
   social: {
     twitter: null,
     facebook: null,
@@ -67,3 +65,11 @@ TeamMember.defaultProps = {
 };
 
 export default TeamMember;
+
+// <div>
+//   {twitterPart}
+//   {facebookPart}
+//   {linkedinPart}
+//   {githubPart}
+//   {mediumPart}
+// </div>

@@ -1,6 +1,6 @@
 ---
-header: "It's Nice To Meet You"
-subheader: "Welcome To Our Studio!"
+header: "We are 4evabuzzy"
+subheader: "This is us"
 imageFileName: "header-bg.jpg"
 jumpToAnchor: "Services"
 jumpToAnchorText: "Tell Me More"

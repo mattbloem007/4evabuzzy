@@ -21,7 +21,9 @@ const ServiceItem = ({ iconName, imageFileName, header, content }) => {
       {iconPart}
       {imagePart}
       <h4 className="service-item-heading">{header}</h4>
-      <p className="text-muted">{content}</p>
+      <div className="text-muted" dangerouslySetInnerHTML={{
+          __html: content
+      }} />
     </>
   );
 };
