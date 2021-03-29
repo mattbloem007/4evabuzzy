@@ -27,6 +27,10 @@ const PortfolioItem = ({
   const handleHideDetail = React.useCallback(() => {
     setShowDetail(false);
   }, []);
+  let isImage = false
+  if (img) {
+    isImage = true
+  }
 
   return (
     <>
@@ -38,7 +42,7 @@ const PortfolioItem = ({
           data-toggle="modal"
           onClick={handleShowDetail}
         >
-        <Img className="img-fluid" fluid={img.fluid} />
+        {isImage ? <Img className="img-fluid" fluid={img.fluid} /> : null}
           <div className="portfolio-hover">
             <div className="portfolio-hover-content">
               <Icon iconName="PlusIcon" size="2x" />
