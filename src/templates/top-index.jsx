@@ -129,7 +129,7 @@ export const query = graphql`
       }
     }
 
-    pages {
+    pages (first: 50){
       edges {
         node {
           id

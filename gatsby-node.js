@@ -107,7 +107,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
             wpgraphql {
 
-              posts (first: 10000) {
+              posts  {
                 edges {
                   node {
                     id
