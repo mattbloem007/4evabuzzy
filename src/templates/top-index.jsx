@@ -101,7 +101,7 @@ export const query = graphql`
       }
     }
     wpgraphql {
-    posts (first: 10000) {
+    posts {
       edges {
         node {
           id
